@@ -3,7 +3,8 @@ from elasticsearch import Elasticsearch
 import json
 
 app = Flask(__name__)
-es = Elasticsearch("http://localhost:9200")
+import os
+es = Elasticsearch(os.getenv("ELASTIC_URL"))
 INDEX = "skuad_search"
 
 @app.route('/')
